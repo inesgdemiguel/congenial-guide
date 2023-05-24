@@ -47,7 +47,7 @@ jobs:
                 "id": "anypoint-exchange-v3",
                 "username": "${{ secrets.ANYPOINT_USERNAME }}",
                 "password": "${{ secrets.ANYPOINT_PASSWORD }}",
-                "client_id": ${{ secrets.CLIENT_ID }}
+                "ca.client_id": ${{ secrets.CLIENT_ID }}
             }]
       - name: Deploy to CloudHub
         env:
