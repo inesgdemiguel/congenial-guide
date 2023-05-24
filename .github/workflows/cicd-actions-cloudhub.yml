@@ -46,14 +46,13 @@ jobs:
             [{
                 "id": "anypoint-exchange-v3",
                 "username": "${{ secrets.ANYPOINT_USERNAME }}",
-                "password": "${{ secrets.ANYPOINT_PASSWORD }}",
-                "ca.client_id": ${{ secrets.CLIENT_ID }}
+                "password": "${{ secrets.ANYPOINT_PASSWORD }}"
             }]
       - name: Deploy to CloudHub
         env:
           AUTHOR: "Inés González de Miguel"
         run: |
-            mvn deploy -DmuleDeploy -Dmessage="IGM deployment Mulesoft with Maven and Github rocks!" -Dorg.id="db210723-4a04-40fe-b63e-3d2b01cfb8f7" -Denv="Sandbox" -Dregion="us-east-2" -Ddeployment.name="hello-cicd-igm24mayo" -Dca.client_secret="a6a75a01AE7c40938CCCc93266a5335c" 
+            mvn deploy -DmuleDeploy -Dmessage="IGM deployment Mulesoft with Maven and Github rocks!" -Dorg.id="db210723-4a04-40fe-b63e-3d2b01cfb8f7" -Denv="Sandbox" -Dregion="us-east-2" -Ddeployment.name="hello-cicd-igm24mayo" -Dca.client_id="${{ secrets.CLIENT_ID }}" -Dca.client_secret="a6a75a01AE7c40938CCCc93266a5335c" 
             
             
             
